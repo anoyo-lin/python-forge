@@ -66,3 +66,7 @@ class ChatRoom(Room):
         self.broadcast(session.name + 'has entered the room.\r\n')
         self.server.users[session.name] = session
         Room.add(self, session)
+
+    def remove(self, session):
+        Room.remove(self, session)
+        self.broadcast(session.name + 'has left the room.\r\n')
